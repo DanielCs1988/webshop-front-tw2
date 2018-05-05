@@ -11,13 +11,13 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            'shoppingCart': [],
-            'filters': {
-                'supplier': null,
-                'productCategory': null
-            },
             'currentPage': 'product-list',
-            'numberOfPurchases': 0
+            'filters': {
+                'productCategory': null,
+                'supplier': null
+            },
+            'numberOfPurchases': 0,
+            'shoppingCart': []
         };
         this.addProduct = this.addProduct.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
@@ -34,8 +34,8 @@ class App extends React.Component {
             product.quantity = 1;
             product.order = this.state.numberOfPurchases;
             this.setState(prevState => ({
-                'shoppingCart': [...prevState.shoppingCart, product],
-                'numberOfPurchases': prevState.numberOfPurchases + 1
+                'numberOfPurchases': prevState.numberOfPurchases + 1,
+                'shoppingCart': [...prevState.shoppingCart, product]
             }));
         } else {
             prevProduct.quantity += 1;
@@ -58,8 +58,8 @@ class App extends React.Component {
     applyFilter(supplier, productCategory) {
         this.setState({
             'filters': {
-                'supplier' : supplier,
-                'productCategory': productCategory
+                'productCategory': productCategory,
+                'supplier' : supplier
             }
         });
     }
@@ -73,17 +73,17 @@ class App extends React.Component {
         for (let order of this.state.shoppingCart) {
             orderQuantityMap[order.id] = order.quantity;
         }
-        const order = {
-            'user': userInfo.user,
+        const shoppingCart = {
+            'orders': orderQuantityMap,
             'paymentId': userInfo.paymentId,
-            'orders': orderQuantityMap
+            'user': userInfo.user
         };
         fetch('/webshop/checkout', {
-            method: 'POST',
-            body: JSON.stringify(order),
+            body: JSON.stringify(shoppingCart),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            method: 'POST'
         }).then(() => console.log('Order arrived!'));
         this.setState({
             'currentPage': 'product-list',
