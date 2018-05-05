@@ -1,0 +1,53 @@
+.separator {
+    background: #555555;
+    height: 2px;
+    margin-top: 2px;
+}
+.dropOrder {
+    float:right;
+    cursor: pointer;
+}
+.orderPrice {
+    font-weight: bold;
+}
+.order {
+    background: #eeeeee;
+    margin-bottom: 5px;
+    padding: 5px;
+    overflow: hidden;
+}
+.incQuantity, .decQuantity {
+    float: right;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 10px;
+}
+.incQuantity {
+    color: #fff;
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+.incQuantity:hover {
+    color: #fff;
+    background-color: #409444;
+    border-color: #3d8b40;
+}
+.incQuantity:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.5);
+}
+.decQuantity {
+    color: #fff;
+    background-color: #e51c23;
+    border-color: #e51c23;
+    margin-right: 0.2rem;
+}
+.decQuantity:hover {
+    color: #fff;
+    background-color: #c4161d;
+    border-color: #b9151b;
+}
+.decQuantity:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(229, 28, 35, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(229, 28, 35, 0.5);
+}

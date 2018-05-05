@@ -1,0 +1,38 @@
+#shopping-cart {
+    position: fixed;
+    top: 3.2rem;
+    right: 1rem;
+    min-width: 15rem;
+    border-radius: 5px;
+    background: #eeeeee;
+    padding: 5px;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    z-index: 1;
+    animation: menu 0.5s ease-in forwards;
+    perspective: 1000px;
+}
+
+#order-list {
+    padding: 1rem;
+
+}
+
+#sumprice {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+}
+
+@keyframes menu {
+    0% {
+        opacity: 0;
+        transform: rotateY(-90deg);
+    }
+    60% {
+        transform: rotateY(30deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
