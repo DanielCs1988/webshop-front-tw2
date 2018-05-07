@@ -1,9 +1,9 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import ProductCategoryMenu from './components/ProductCategoryMenu';
-import ProductList from './components/ProductList';
-import CheckoutPage from './components/CheckoutPage';
-import Alert from './components/Alert';
+import Navbar from './ordering/Navbar';
+import ProductCategoryMenu from './products/ProductCategoryMenu';
+import ProductList from './products/ProductList';
+import CheckoutPage from './checkout/CheckoutPage';
+import Alert from './checkout/Alert';
 
 
 class App extends React.Component {

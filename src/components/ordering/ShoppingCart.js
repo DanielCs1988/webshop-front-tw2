@@ -1,7 +1,7 @@
 import React from 'react';
 import Order from './Order';
 import CheckoutButton from './CheckoutButton';
-import '../css/shopping_cart.css';
+import '../../css/shopping_cart.css';
 
 
 class ShoppingCart extends React.Component {

@@ -1,8 +1,8 @@
 import React from 'react';
-import '../css/creditcard.css';
-import Visa from '../img/visa.jpg';
-import Amex from '../img/amex.jpg';
-import Mastercard from '../img/mastercard.jpg';
+import '../../css/creditcard.css';
+import Visa from '../../img/visa.jpg';
+import Amex from '../../img/amex.jpg';
+import Mastercard from '../../img/mastercard.jpg';
 
 
 class CreditCardPayment extends React.Component {

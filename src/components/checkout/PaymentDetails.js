@@ -1,6 +1,6 @@
 import React from 'react';
-import creditCard from '../img/credit_card.png';
-import paypal from '../img/paypal.png';
+import creditCard from '../../img/credit_card.png';
+import paypal from '../../img/paypal.png';
 
 class PaymentDetails extends React.Component {
 

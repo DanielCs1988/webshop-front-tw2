@@ -4,7 +4,7 @@ import Shipping from "./Shipping";
 import PaymentDetails from "./PaymentDetails";
 import PaypalPayment from "./PaypalPayment";
 import CreditCardPayment from "./CreditCardPayment";
-import '../css/forms.css';
+import '../../css/forms.css';
 
 
 class CheckoutPage extends React.Component {

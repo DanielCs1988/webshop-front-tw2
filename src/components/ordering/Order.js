@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/order.css';
+import '../../css/order.css';
 
 
 class Order extends React.Component {

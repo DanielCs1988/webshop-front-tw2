@@ -1,6 +1,6 @@
 import React from 'react';
-import '../css/creditcard.css';
-import Paypal from '../img/paypal-784404_960_720.png'
+import '../../css/creditcard.css';
+import Paypal from '../../img/paypal-784404_960_720.png'
 
 
 class PaypalPayment extends React.Component {

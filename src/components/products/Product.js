@@ -1,11 +1,11 @@
 import React from 'react';
-import '../css/product.css';
+import '../../css/product.css';
 
 
 class Product extends React.Component {
 
     render() {
-        const imagePath = require(`../img/${this.props.product.imageName}`);
+        const imagePath = require(`../../img/${this.props.product.imageName}`);
         // TODO: page dies if image cannot be found
         return (
             <div className="product">
