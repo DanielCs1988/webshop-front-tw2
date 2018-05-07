@@ -1,0 +1,13 @@
+#alert {
+    position: fixed;
+    left: 0;
+    top: 6%;
+    width: 100%;
+    font-size: 20px;
+    line-height: 2em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(126,178,51, 0.8);
+}

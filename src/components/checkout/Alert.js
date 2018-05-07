@@ -1,13 +1,17 @@
 import React from "react";
+import "../../css/alert.css";
 
 class Alert extends React.Component {
     render() {
-        const alert = this.props.message && <div className="alert alert-success" role="alert">{this.props.message}</div>
+        if (!this.props.message) {
+            return null;
+        }
+
         return(
-            <div>
-                {alert}
+            <div id="alert" role="alert">
+                {this.props.message}
             </div>
-        )
+        );
     }
 }
 

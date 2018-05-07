@@ -26,7 +26,7 @@ class Navbar extends React.Component {
                 <button className="btn" onClick={this.cartBtnClicked}>
                     Cart
                     {productQuantity > 0 &&
-                    <span className="product-counter">
+                    <span id="product-counter">
                         {productQuantity}
                     </span>}
                 </button>

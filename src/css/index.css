@@ -4,11 +4,12 @@ body {
     background: #ddd;
     font-family: 'Nunito Sans', sans-serif;
     margin: 0;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
     text-align: left;
+    box-sizing: border-box;
 }
 
 img {
@@ -35,6 +36,45 @@ img {
     height: 5%;
     width: 100%;
     box-shadow: 0 1px 4px 2px #4c4e56;
+}
+
+.navbar-brand {
+    line-height: 2em;
+    padding: 0 5em 0.2em;
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #F1B514;
+}
+.navbar-brand:hover {
+    text-decoration: underline;
+    color: #FFCE00;
+    cursor: pointer;
+}
+
+#product-counter {
+    padding: 0.3em;
+    margin: 0 0.3em;
+    background-color: #7EB233;
+    color: #fff;
+    border-radius: 1.5em;
+    font-weight: bold;
+    animation: flash 0.5s ease-in-out forwards;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+        background-color: #7EB233;
+    }
+    50% {
+        opacity: 0.5;
+        background-color: #26EE99;
+    }
+    100% {
+        opacity: 1;
+        background-color: #7EB233;
+    }
 }
 
 .main-menu{
@@ -100,7 +140,7 @@ img {
     background: #E8E8E8;
     opacity: 0.8;
     position:absolute;
-    top: 7%;
+    top: 6.5%;
     left: 29%;
     width:200px;
     height:350px;
