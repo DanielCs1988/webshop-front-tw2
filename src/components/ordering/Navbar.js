@@ -20,6 +20,15 @@ class Navbar extends React.Component {
         this.registerBtnClicked = this.registerBtnClicked.bind(this);
         this.setBtns = this.setBtns.bind(this);
         this.setLoggedIn = this.setLoggedIn.bind(this);
+
+
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem("username") != null){
+            this.setBtns();
+            this.state.loggedIn = "Logged in as " + localStorage.getItem("username");
+        }
     }
 
     cartBtnClicked() {
