@@ -11,11 +11,15 @@ class Navbar extends React.Component {
         this.state = {
             cartVisible: false,
             loginVisible: false,
-            registerVisible: false
+            registerVisible: false,
+            loginAndRegisterBtnVisible: true,
+            loggedIn: null
         };
         this.cartBtnClicked = this.cartBtnClicked.bind(this);
         this.loginBtnClicked = this.loginBtnClicked.bind(this);
         this.registerBtnClicked = this.registerBtnClicked.bind(this);
+        this.setBtns = this.setBtns.bind(this);
+        this.setLoggedIn = this.setLoggedIn.bind(this);
     }
 
     cartBtnClicked() {
@@ -30,6 +34,26 @@ class Navbar extends React.Component {
         this.setState(state => ({'registerVisible': !state.registerVisible}));
     }
 
+    setBtns(){
+        this.setState(state => ({'loginAndRegisterBtnVisible': !state.loginAndRegisterBtnVisible}));
+    }
+
+    setLoggedIn(username){
+        this.setState(state => ({'loggedIn': username}));
+    }
+
+    renderBtns(){
+        if(this.state.loginAndRegisterBtnVisible){
+            return ([<button className="btn"  onClick={this.registerBtnClicked}>
+                Register
+            </button>,
+                <button className="btn"  onClick={this.loginBtnClicked}>
+                    Login
+                </button>])
+                ;
+        }
+    }
+
     render() {
         const productQuantity = this.props.orders.reduce((a,b) => a+b.quantity,0);
         return (
@@ -39,12 +63,8 @@ class Navbar extends React.Component {
                 </div>
 
                 <div>
-                    <button className="btn"  onClick={this.registerBtnClicked}>
-                        Register
-                    </button>
-                    <button className="btn"  onClick={this.loginBtnClicked}>
-                        Login
-                    </button>
+                    <i>{this.state.loggedIn}</i>
+                    {this.renderBtns()}
                     <button className="btn" onClick={this.cartBtnClicked}>
                         Cart
                         {productQuantity > 0 &&
@@ -55,7 +75,7 @@ class Navbar extends React.Component {
                 </div>
 
             </nav>,
-            <Login visible={this.state.loginVisible}/>,
+            <Login visible={this.state.loginVisible} setbtns={this.setBtns} hidelogin={this.loginBtnClicked} setLogIn={this.setLoggedIn}/>,
             <Register visible={this.state.registerVisible}/>,
             <ShoppingCart visible={this.state.cartVisible} orders={this.props.orders} checkout={this.props.checkout}
                           hideCart={this.cartBtnClicked} addProduct={this.props.addProduct} totalPrice={this.props.totalPrice}
