@@ -10,22 +10,22 @@ class ProductList extends React.Component {
     }
 
     componentDidMount() {
-        this.getItemList(this.props.filters);
+        this.getItemList(this.props.categoryFilter, this.props.supplierFilter);
     }
 
     componentWillReceiveProps(nextProps) {
-        this.getItemList(nextProps.filters);
+        this.getItemList(nextProps.categoryFilter, nextProps.supplierFilter);
     }
 
-    getItemList(filters){
+    getItemList(categoryFilter, supplierFilter){
         let callRoute = '/webshop/product-list';
 
-        if (filters.productCategory != null && filters.supplier != null){
-            callRoute = '/webshop/product-list?supplier=' + filters.supplier + "&product-category=" + filters.productCategory;
-        } else if (filters.supplier != null){
-            callRoute = '/webshop/product-list?supplier=' + filters.supplier;
-        } else if (filters.productCategory != null){
-            callRoute = '/webshop/product-list?product-category=' + filters.productCategory;
+        if (categoryFilter != null && supplierFilter != null){
+            callRoute = '/webshop/product-list?supplier=' + supplierFilter + "&product-category=" + categoryFilter;
+        } else if (supplierFilter != null){
+            callRoute = '/webshop/product-list?supplier=' + supplierFilter;
+        } else if (categoryFilter != null){
+            callRoute = '/webshop/product-list?product-category=' + categoryFilter;
         }
         fetch(callRoute)
             .then(result => result.json())

@@ -4,6 +4,7 @@ import ProductCategoryMenu from './products/ProductCategoryMenu';
 import ProductList from './products/ProductList';
 import CheckoutPage from './checkout/CheckoutPage';
 import Alert from './checkout/Alert';
+import SupplierMenu from "./products/SupplierMenu";
 
 
 class App extends React.Component {
@@ -12,20 +13,20 @@ class App extends React.Component {
         super(props);
         this.state = {
             'currentPage': 'product-list',
-            'filters': {
-                'productCategory': null,
-                'supplier': null
-            },
+            'categoryFilter': null,
+            'supplierFilter': null,
             'numberOfPurchases': 0,
             'shoppingCart': []
         };
         this.addProduct = this.addProduct.bind(this);
         this.removeProduct = this.removeProduct.bind(this);
-        this.applyFilter = this.applyFilter.bind(this);
         this.changePage = this.changePage.bind(this);
         this.sendOrder = this.sendOrder.bind(this);
         this.dropProduct = this.dropProduct.bind(this);
         this.getTotalPrice = this.getTotalPrice.bind(this);
+        this.applyCategoryFilter = this.applyCategoryFilter.bind(this);
+        this.applySupplierFilter = this.applySupplierFilter.bind(this);
+
     }
 
     addProduct(product) {
@@ -55,13 +56,12 @@ class App extends React.Component {
         this.setState({'shoppingCart': updatedCart});
     }
 
-    applyFilter(supplier, productCategory) {
-        this.setState({
-            'filters': {
-                'productCategory': productCategory,
-                'supplier' : supplier
-            }
-        });
+    applyCategoryFilter(productCategory) {
+        this.setState({"categoryFilter": productCategory});
+    }
+
+    applySupplierFilter(supplier) {
+        this.setState({"supplierFilter": supplier});
     }
 
     changePage(pageName) {
@@ -100,7 +100,9 @@ class App extends React.Component {
 
     render() {
         const pageToRender = this.state.currentPage === 'product-list' ?
-            <ProductList filters={this.state.filters} addProduct={this.addProduct} /> :
+            <ProductList categoryFilter={this.state.categoryFilter}
+                         supplierFilter={this.state.supplierFilter}
+                         addProduct={this.addProduct} /> :
             <CheckoutPage sendOrder={this.sendOrder}
                           totalPrice={this.getTotalPrice()} />;
 
@@ -109,7 +111,8 @@ class App extends React.Component {
                 <Navbar orders={this.state.shoppingCart} checkout={this.changePage} totalPrice={this.getTotalPrice()}
                          addProduct={this.addProduct} removeProduct={this.removeProduct} dropProduct={this.dropProduct}/>
                 <Alert message={this.state.message}/>
-                <ProductCategoryMenu applyFilter={this.applyFilter}/>
+                <ProductCategoryMenu applyCategoryFilter={this.applyCategoryFilter}
+                                     applySupplierFilter={this.applySupplierFilter} />
                 {pageToRender}
             </div>
         )
